@@ -1,14 +1,13 @@
 #include "header.h"
 
 int validInput (int n, int size){
-	//return error code
+	//return error code: 1-invalid input, 0-valid input
 if (n > (pow(2,size)-1)) return 1;
 else return 0;
 }
 
 
-void intToBin(unsigned int n, int size, int* binary)
-{
+void intToBin(unsigned int n, int size, int* binary){
     unsigned int mask = 1U << (size-1);
     int i;
     for (i = 0; i < size; i++) {
@@ -18,10 +17,14 @@ void intToBin(unsigned int n, int size, int* binary)
 }
 
 
+
+
+
+
 int main (){
 int n;
 int size;
-	printf("Hello there! This is a program to calculate autonums Elementar Cellular Automatons.\n");
+	printf("Hello there! This is a program to calculate Elementar Cellular Automatons.\n");
 	
 	printf("N: ");
 	scanf("%d", &n);
