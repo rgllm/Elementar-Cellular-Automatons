@@ -1,4 +1,8 @@
-#include "header.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
 int validInput (int n, int size){
 	//return error code: 1-invalid input, 0-valid input
@@ -17,10 +21,9 @@ void intToBin(unsigned int n, int* binary){
 }
 
 
-void matrix (int n, int size, int binary[], int start[]){
+void matrix (int n, int size, int binary[], int start[], int iteractions){
 
 int matrix[2][2][2];
-int iteractions;
 int news[size];
 int i,j;
 
@@ -33,8 +36,6 @@ matrix[1][0][1]=binary[2];
 matrix[1][1][0]=binary[1];
 matrix[1][1][1]=binary[0];
 
-printf("Number of iteractions: ");
-scanf("%d", &iteractions);
 
 //TODO: results not entire correct
 for (j=1;j<=iteractions;j++){
@@ -64,6 +65,7 @@ int main (){
 int n;
 int size;
 int i;
+int iteractions;
 
 printf("Hello there! This is a program to calculate Elementar Cellular Automatons.\n");
 
@@ -71,13 +73,15 @@ printf("Hello there! This is a program to calculate Elementar Cellular Automaton
 printf("NΦ (max is 255): ");
 scanf("%d", &n);
 
-//Size of start. TODO: different sizes
+//Size of start.
 printf("Size: ");
 scanf("%d", &size);
 int binary[8];
 int start[size];
 
-printf("N: %d, Tam: %d\n",n,size);
+//Number of iteractions
+printf("Number of iteractions: ");
+scanf("%d", &iteractions);
 
 //validate size
 if (size <= 2) {
@@ -88,9 +92,7 @@ else intToBin(n,binary);
 //Start array
 int j;
 for (j=0;j<size;j++){
-	printf("Grid Position %d : ",(j+1));
-	scanf("%d",&start[j]);
-
+	start[j]= rand()%2;
 }
 
 //Begin of tests
@@ -108,7 +110,7 @@ for (i=0;i<size;i++)
 
 
 //Iteractions
-matrix(n,size,binary,start);
+matrix(n,size,binary,start,iteractions);
 
 return 0;	
 }
