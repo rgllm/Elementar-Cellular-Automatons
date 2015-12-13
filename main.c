@@ -38,14 +38,14 @@ scanf("%d", &iteraction);
 
 //TODO: results not entire correct
 for (;iteraction>0;iteraction--){
-	news[0]=matrix[start[7]][start[0]][start[1]];
-	news[1]=matrix[start[0]][start[1]][start[2]];
-	news[2]=matrix[start[1]][start[2]][start[3]];
-	news[3]=matrix[start[2]][start[3]][start[4]];
-	news[4]=matrix[start[3]][start[4]][start[5]];
-	news[5]=matrix[start[4]][start[5]][start[6]];
-	news[6]=matrix[start[5]][start[6]][start[7]];
-	news[7]=matrix[start[6]][start[7]][start[0]];
+	news[0]=matrix[binary[7]][binary[0]][binary[1]];
+	news[1]=matrix[binary[0]][binary[1]][binary[2]];
+	news[2]=matrix[binary[1]][binary[2]][binary[3]];
+	news[3]=matrix[binary[2]][binary[3]][binary[4]];
+	news[4]=matrix[binary[3]][binary[4]][binary[5]];
+	news[5]=matrix[binary[4]][binary[5]][binary[6]];
+	news[6]=matrix[binary[5]][binary[6]][binary[7]];
+	news[7]=matrix[binary[6]][binary[7]][binary[0]];
 }
 
 //Print the results
@@ -56,6 +56,7 @@ printf("%d",news[i]);
 printf("\n");
 
 }
+
 
 
 int main (){
