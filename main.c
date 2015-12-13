@@ -24,14 +24,14 @@ int iteraction;
 int news[size];
 int i;
 
-matrix[0][0][0]=start[7];
-matrix[0][0][1]=start[6];
-matrix[0][1][0]=start[5];
-matrix[1][0][0]=start[4];
-matrix[1][1][0]=start[3];
-matrix[0][1][1]=start[2];
-matrix[1][0][1]=start[1];
-matrix[1][1][1]=start[0];
+matrix[0][0][0]=binary[7];
+matrix[0][0][1]=binary[6];
+matrix[0][1][0]=binary[5];
+matrix[1][0][0]=binary[4];
+matrix[1][1][0]=binary[3];
+matrix[0][1][1]=binary[2];
+matrix[1][0][1]=binary[1];
+matrix[1][1][1]=binary[0];
 
 printf("Number of iteractions: ");
 scanf("%d", &iteraction);
