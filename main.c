@@ -21,7 +21,7 @@ void intToBin(unsigned int n, int* binary){
 }
 
 
-void matrix (int n, int size, int binary[], int start[], int iteractions){
+void iteractions (int n, int size, int binary[], int start[], int niteractions){
 
 int matrix[2][2][2];
 int news[size];
@@ -37,8 +37,7 @@ matrix[1][1][0]=binary[1];
 matrix[1][1][1]=binary[0];
 
 
-//TODO: results not entire correct
-for (j=1;j<=iteractions;j++){
+for (j=1;j<=niteractions;j++){
 	news[0]=matrix[start[size-1]][start[0]][start[(1)]];
 	for(i=1;i<size-1;i++)
 		news[i]=matrix[start[i-1]][start[i]][start[i+1]];
@@ -59,13 +58,9 @@ for (j=1;j<=iteractions;j++){
 }
 
 
-
-
 int main (){
-int n;
-int size;
-int i;
-int iteractions;
+int n, size, i, j, niteractions;
+char grid;
 
 printf("Hello there! This is a program to calculate Elementar Cellular Automatons.\n");
 
@@ -81,21 +76,33 @@ int start[size];
 
 //Number of iteractions
 printf("Number of iteractions: ");
-scanf("%d", &iteractions);
+scanf("%d", &niteractions);
+
+//Start array
+printf("Press I to insert the initial grid or R for a random one: ");
+fflush(stdin);
+scanf(" %c", &grid);
+if (grid=='I'){
+for (j=0;j<size;j++){
+	printf("Position %d:",j);
+	scanf("%d",&start[j]);
+}
+}
+if (grid=='R'){
+for (j=0;j<size;j++){
+	start[j]= rand()%2;
+}
+}
+//END
 
 //validate size
 if (size <= 2) {
 	printf("Increase size.\n"); return 0;
 }
 else intToBin(n,binary);
+//
 
-//Start array
-int j;
-for (j=0;j<size;j++){
-	start[j]= rand()%2;
-}
-
-//Begin of tests
+//t=0
 for (i=0;i<8;i++){
 	printf("%d",binary[i]);
 }
@@ -106,11 +113,11 @@ for (i=0;i<size;i++)
 		else printf("■ ");
 	printf(" t=0 \n \n" );
 
-//End of Tests
+//t=0
 
 
 //Iteractions
-matrix(n,size,binary,start,iteractions);
+iteractions(n,size,binary,start,niteractions);
 
 return 0;	
 }
