@@ -21,6 +21,30 @@ void intToBin(unsigned int n, int* binary){
 }
 
 
+<<<<<<< HEAD
+=======
+int GetRand(int min, int max)
+{
+  static int Init = 0;
+  int rc;
+  
+  if (Init == 0)
+  {
+    srand(time(NULL));
+    Init = 1;
+  }  
+  rc = (rand() % (max - min + 1) + min);
+  
+  return (rc);
+}
+
+
+
+
+
+
+
+>>>>>>> 7b8dd692cc66b985f3f69652883d38b4acb3cfca
 void iteractions (int n, int size, int binary[], int start[], int niteractions){
 
 int matrix[2][2][2];
@@ -90,7 +114,11 @@ for (j=0;j<size;j++){
 }
 if (grid=='R'){
 for (j=0;j<size;j++){
+<<<<<<< HEAD
 	start[j]= rand()%2;
+=======
+	start[j]= GetRand(0, 1);
+>>>>>>> 7b8dd692cc66b985f3f69652883d38b4acb3cfca
 }
 }
 //END
